@@ -1,0 +1,17 @@
+dagster-user-deployments:
+  enableSubchart: false
+dagsterWebserver:
+  workspace:
+      enabled: true
+      servers:
+        - host: "dagster-usercode-1"
+          port: 3030
+        - host: "dagster-usercode-2"
+          port: 3030
+runLauncher:
+  type: K8sRunLauncher
+  config:
+    k8sRunLauncher:
+      envSecrets:
+        - name: dagster-aws-access-key-id
+        - name: dagster-aws-secret-access-key

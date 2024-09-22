@@ -1,0 +1,19 @@
+deployments:
+  - name: "dagster-usercode-1"
+    image:
+      repository: "dagster-usercode-1"
+      tag: latest
+      pullPolicy: IfNotPresent #Only for local kube
+    dagsterApiGrpcArgs:
+      - "-f"
+      - "definitions.py"
+    port: 3030
+  - name: "dagster-usercode-2"
+    image:
+      repository: "dagster-usercode-2"
+      tag: latest
+      pullPolicy: IfNotPresent #Only for local kube
+    dagsterApiGrpcArgs:
+      - "-f"
+      - "definitions.py"
+    port: 3030
